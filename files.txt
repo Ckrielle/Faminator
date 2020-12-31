@@ -1,0 +1,12 @@
+ENTER THEM PROPERLY, THEY WILL APPEAR IN THE ORDER THEY ARE WRITTEN HERE
+
+############## IMAGE EXAMPLE ##############
+
+00:00:00-00:00:30	img1.png
+00:00:30-00:01:00	img2.png
+
+############## VIDEO EXAMPLE ##############
+
+vid1.mp4
+vid2.mp4
+vid3.mp4
