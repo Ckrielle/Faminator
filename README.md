@@ -28,7 +28,7 @@ pip install -r requirements.txt
 
 I made a video on the project on my [youtube channel](https://www.youtube.com/watch?v=GX6JuASu1Xk). It's in Greek however. One day I'll add english subtitles to it.
 
-## To-Do & Bugs
+## To-Do
 
 Truth be told I'm of the Luke Smith school of video making. That means no editing. So the program works fine for what I want, though more could be added:
 
