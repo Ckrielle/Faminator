@@ -39,7 +39,7 @@ def just_videos(videos, audio, out):
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Easily create great videos!",
+        description="Easily Make Videos & Become Famous",
         epilog="Hack The Planet!"
     )
     parser.add_argument(
@@ -78,8 +78,8 @@ def main():
 
     logo()
     args = parse_args()
-    choice = args.video_type
 
+    choice = args.video_type
     audio = args.audio
     output = args.output
     with open(args.input, 'r') as f:

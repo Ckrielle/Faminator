@@ -1,11 +1,10 @@
-# Faminator
-> Easily Create Videos & Become Famous
+![Faminator Logo](/images/logo.png)
 
 ## Table Of Contents
 * [General Info](#general-info)
 * [Installation](#installation)
 * [Demonstration](#demonstration)
-* [To-Do & Bugs](#to-do&bugs)
+* [To-Do](#to-do)
 * [Donations](#donations)
 * [Contact Me](#contact-me)
 * [License](#license)
@@ -27,15 +26,20 @@ pip install -r requirements.txt
 ```
 ## Demonstration
 
-> Under Construction
+I made a video on the project on my [youtube channel](https://www.youtube.com/watch?v=GX6JuASu1Xk). It's in Greek however. One day I'll add english subtitles to it.
 
 ## To-Do & Bugs
 
 Truth be told I'm of the Luke Smith school of video making. That means no editing. So the program works fine for what I want, though more could be added:
+
 * When you create a video and put audio over it, the video takes the length of the audio file. I finally understood what "it's not a bug, it's a feature" means.
 * Give the possibility to 2x a clip/video or a portion of it.
 * Provide more editing features.
 * Help in generating files.txt.
+* Add a mode to create videos with both clips and images.
+* Option to add background music.
+* Change clip and images dimensions.
+
 And whatever else comes to my mind at a later time.
 
 ## Donations
