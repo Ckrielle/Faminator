@@ -2,6 +2,7 @@ from moviepy.video.fx import resize
 from moviepy.editor import *
 from pyfiglet import Figlet
 import argparse
+import os.path
 
 
 def logo():
@@ -35,6 +36,19 @@ def just_videos(videos, audio, out):
     if audio:
         video = video.set_audio(AudioFileClip(audio))
     video.write_videofile(out, fps=24)
+
+
+def generate_video(fin, choice):
+    with open(fin, "w") as f:
+        if choice == "img":
+            print("Enter the names of the images in order of appearance")
+            images = [name for name in input().split()]
+            print("Enter for every image when you want it to end")
+            end = [time for time in input().split()]
+            end.insert(0, "00:00:00")
+            for i, img in enumerate(images):
+                f.writelines(f"{end[i]}-{end[i+1]}\t{img}\n")
+
 
 
 def parse_args():
@@ -74,23 +88,30 @@ def parse_args():
     args = parser.parse_args()
     return args
 
-def main():
 
+def main():
     logo()
     args = parse_args()
 
     choice = args.video_type
     audio = args.audio
-    output = args.output
-    with open(args.input, 'r') as f:
-        data = [line.strip() for line in f]
-        if choice == "img":
-            time = [i.split('\t')[0] for i in data]
-            start = [time_frames(i.split('-')[0]) for i in time]
-            end = [time_frames(i.split('-')[1]) for i in time]
-            media = [i.split('\t')[1] for i in data]
-            just_images(start, end, media, audio, output)
-        elif choice == "vid":
-            just_videos(data, audio, output)
+    output_file = args.output
+    input_file = args.input
+    if os.path.isfile(input_file):
+        with open(input_file, 'r') as f:
+            data = [line.strip() for line in f]
+            if choice == "img":
+                time = [i.split('\t')[0] for i in data]
+                start = [time_frames(i.split('-')[0]) for i in time]
+                end = [time_frames(i.split('-')[1]) for i in time]
+                media = [i.split('\t')[1] for i in data]
+                just_images(start, end, media, audio, output_file)
+            elif choice == "vid":
+                just_videos(data, audio, output)
+    else:
+        print("files.txt, which is necessary for this program, is missing")
+        ans = input("Would you like to help me generate it? [y/n]: ")
+        if ans == "y":
+            generate_video(input_file, choice)
 
 main()
