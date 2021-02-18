@@ -48,7 +48,13 @@ def generate_video(fin, choice):
             end.insert(0, "00:00:00")
             for i, img in enumerate(images):
                 f.writelines(f"{end[i]}-{end[i+1]}\t{img}\n")
-
+        elif choice == "vid":
+            print("Enter the names of the videos in order of appearance")
+            videos = [name for name in input().split()]
+            for name in videos:
+                f.writelines(f"{name}\n")
+        print("Great, now lets go make that video")
+    main(True)
 
 
 def parse_args():
@@ -89,8 +95,9 @@ def parse_args():
     return args
 
 
-def main():
-    logo()
+def main(logo_flag):
+    if not logo_flag:
+        logo()
     args = parse_args()
 
     choice = args.video_type
@@ -107,11 +114,11 @@ def main():
                 media = [i.split('\t')[1] for i in data]
                 just_images(start, end, media, audio, output_file)
             elif choice == "vid":
-                just_videos(data, audio, output)
+                just_videos(data, audio, output_file)
     else:
         print("files.txt, which is necessary for this program, is missing")
         ans = input("Would you like to help me generate it? [y/n]: ")
         if ans == "y":
             generate_video(input_file, choice)
 
-main()
+main(False)
